@@ -35,19 +35,17 @@ class QHMOptimizer(optimizer.Optimizer):
     def __init__(self, alpha=1.0, beta=0.999, nu=0.7, use_locking=False, name="QHM"):
         """Construct a new Eve optimizer.
         Args:
-          alpha1: A Tensor or a floating point value.  
+          alpha: A Tensor or a floating point value.  
             The learning rate.
-          beta1: A float value or a constant float tensor.
-            The exponential decay rate for the 1st moment estimates.
-          beta2: A float value or a constant float tensor.
-            The exponential decay rate for the 2nd moment estimates.
-          beta3: A float value or a constant float tensor.
-            The exponential decay rate for computing relative change.
+          beta: A float value or a constant float tensor.
+            The exponential decay rate for the moment estimates.
+          nu: A float value or a constant float tensor.
+            The immediate discount factor.
           epsilon: A float value or a constant float tensor.
             A small constant for numerical stability. 
           use_locking: If True use locks for update operations.
           name: Optional name for the operations created when applying gradients.
-            Defaults to "Eve".
+            Defaults to "QHM".
         @compatibility(eager)
         When eager execution is enabled, `alpha1`, `beta1`, `beta2`, `beta3`, `clip_value`, 
         and `epsilon` can each be a callable that takes no arguments and returns the
@@ -102,19 +100,21 @@ class QHAdamOptimizer(optimizer.Optimizer):
                  epsilon=1e-8, use_locking=False, name="QHAdam"):
         """Construct a new Eve optimizer.
         Args:
-          alpha1: A Tensor or a floating point value.  
+          alpha: A Tensor or a floating point value.  
             The learning rate.
           beta1: A float value or a constant float tensor.
             The exponential decay rate for the 1st moment estimates.
           beta2: A float value or a constant float tensor.
             The exponential decay rate for the 2nd moment estimates.
-          beta3: A float value or a constant float tensor.
-            The exponential decay rate for computing relative change.
+          nu1: A float value or a constant float tensor.
+            The 1st immediate discount factor.
+          nu2: A float value or a constant float tensor.
+            The 2nd immediate discount factor.
           epsilon: A float value or a constant float tensor.
             A small constant for numerical stability. 
           use_locking: If True use locks for update operations.
           name: Optional name for the operations created when applying gradients.
-            Defaults to "Eve".
+            Defaults to "QHAdam".
         @compatibility(eager)
         When eager execution is enabled, `alpha1`, `beta1`, `beta2`, `beta3`, `clip_value`, 
         and `epsilon` can each be a callable that takes no arguments and returns the
