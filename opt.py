@@ -33,7 +33,7 @@ class QHMOptimizer(optimizer.Optimizer):
     """
 
     def __init__(self, alpha=1.0, beta=0.999, nu=0.7, use_locking=False, name="QHM"):
-        """Construct a new Eve optimizer.
+        """Construct a new QHM optimizer.
         Args:
           alpha: A Tensor or a floating point value.  
             The learning rate.
@@ -98,7 +98,7 @@ class QHAdamOptimizer(optimizer.Optimizer):
 
     def __init__(self, alpha=1e-3, beta1=0.9, beta2=0.999, nu1=1.0, nu2=1.0,
                  epsilon=1e-8, use_locking=False, name="QHAdam"):
-        """Construct a new Eve optimizer.
+        """Construct a new QHAdam optimizer.
         Args:
           alpha: A Tensor or a floating point value.  
             The learning rate.
