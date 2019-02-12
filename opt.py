@@ -47,8 +47,8 @@ class QHMOptimizer(optimizer.Optimizer):
           name: Optional name for the operations created when applying gradients.
             Defaults to "QHM".
         @compatibility(eager)
-        When eager execution is enabled, `alpha1`, `beta1`, `beta2`, `beta3`, `clip_value`, 
-        and `epsilon` can each be a callable that takes no arguments and returns the
+        When eager execution is enabled, `alpha`, `beta`, and `nu`
+        can each be a callable that takes no arguments and returns the
         actual value to use. This can be useful for changing these values across
         different invocations of optimizer functions.
         @end_compatibility
@@ -116,7 +116,7 @@ class QHAdamOptimizer(optimizer.Optimizer):
           name: Optional name for the operations created when applying gradients.
             Defaults to "QHAdam".
         @compatibility(eager)
-        When eager execution is enabled, `alpha1`, `beta1`, `beta2`, `beta3`, `clip_value`, 
+        When eager execution is enabled, `alpha`, `beta1`, `beta2`, `nu1`, `nu2`, 
         and `epsilon` can each be a callable that takes no arguments and returns the
         actual value to use. This can be useful for changing these values across
         different invocations of optimizer functions.
